@@ -1,0 +1,89 @@
+Algoritmo "MonitoramentoCestaBasica"
+// Disciplina: Algoritmos e Pensamento Computacional
+// Objetivo  : Calcular e classificar a variacao percentual de preco
+//             de 3 produtos da cesta basica entre dois meses consecutivos.
+
+Var
+    nome1, nome2, nome3 : caractere
+    precoAnterior1, precoAtual1, variacao1 : real
+    precoAnterior2, precoAtual2, variacao2 : real
+    precoAnterior3, precoAtual3, variacao3 : real
+    situacao1, situacao2, situacao3 : caractere
+
+Inicio
+    escreval("=== MONITORAMENTO DE PRECOS DA CESTA BASICA ===")
+
+    // --- Leitura de dados ---
+    escreva("Informe o nome do 1o produto: ")
+    leia(nome1)
+    escreva("Preco no mes anterior (R$): ")
+    leia(precoAnterior1)
+    escreva("Preco no mes atual (R$): ")
+    leia(precoAtual1)
+
+    escreva("Informe o nome do 2o produto: ")
+    leia(nome2)
+    escreva("Preco no mes anterior (R$): ")
+    leia(precoAnterior2)
+    escreva("Preco no mes atual (R$): ")
+    leia(precoAtual2)
+
+    escreva("Informe o nome do 3o produto: ")
+    leia(nome3)
+    escreva("Preco no mes anterior (R$): ")
+    leia(precoAnterior3)
+    escreva("Preco no mes atual (R$): ")
+    leia(precoAtual3)
+
+    // --- Calculo da variacao percentual ---
+    // Formula: ((precoAtual - precoAnterior) / precoAnterior) * 100
+    variacao1 <- ((precoAtual1 - precoAnterior1) / precoAnterior1) * 100
+    variacao2 <- ((precoAtual2 - precoAnterior2) / precoAnterior2) * 100
+    variacao3 <- ((precoAtual3 - precoAnterior3) / precoAnterior3) * 100
+
+    // --- Classificacao por estrutura condicional encadeada ---
+    se (variacao1 > 0) entao
+        situacao1 <- "AUMENTO"
+    senao
+        se (variacao1 < 0) entao
+            situacao1 <- "QUEDA"
+        senao
+            situacao1 <- "ESTAVEL"
+        fimse
+    fimse
+
+    se (variacao2 > 0) entao
+        situacao2 <- "AUMENTO"
+    senao
+        se (variacao2 < 0) entao
+            situacao2 <- "QUEDA"
+        senao
+            situacao2 <- "ESTAVEL"
+        fimse
+    fimse
+
+    se (variacao3 > 0) entao
+        situacao3 <- "AUMENTO"
+    senao
+        se (variacao3 < 0) entao
+            situacao3 <- "QUEDA"
+        senao
+            situacao3 <- "ESTAVEL"
+        fimse
+    fimse
+
+    // --- Exibicao consolidada ---
+    escreval("==============================================")
+    escreval("RESUMO DA VARIACAO DE PRECOS")
+    escreval("==============================================")
+    escreval("Produto 1: ", nome1, " | Anterior: R$ ", precoAnterior1:0:2,
+             " | Atual: R$ ", precoAtual1:0:2,
+             " | Variacao: ", variacao1:0:2, "% | Situacao: ", situacao1)
+    escreval("Produto 2: ", nome2, " | Anterior: R$ ", precoAnterior2:0:2,
+             " | Atual: R$ ", precoAtual2:0:2,
+             " | Variacao: ", variacao2:0:2, "% | Situacao: ", situacao2)
+    escreval("Produto 3: ", nome3, " | Anterior: R$ ", precoAnterior3:0:2,
+             " | Atual: R$ ", precoAtual3:0:2,
+             " | Variacao: ", variacao3:0:2, "% | Situacao: ", situacao3)
+    escreval("==============================================")
+Fimalgoritmo
